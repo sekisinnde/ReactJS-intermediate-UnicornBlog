@@ -1,25 +1,43 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useEffect, useState } from "react";
+import Galleries from './Galleries';
+import Accueille from './Accueille';
+import Posts from './Posts';
+import Uploads from './Uploads';
+import "./styles.css";
 
 function App() {
+  const [articles, setArticles]= useState([])
+    
+  useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/posts")
+        .then((res)=>{
+            console.log('conn_api')
+            return res.json()
+        })
+        .then((res)=>{
+          setArticles(res)
+            console.log('conn_api mise à jour');
+        })
+    }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      <Accueille />
+      <ul>
+        {articles.map(article => (
+          <li key={article.title}>
+            {article.title}
+          </li>
+        ))}
+      </ul>
+        
+       
+   </div>
+  
+ 
+  )
+   
 }
 
 export default App;
