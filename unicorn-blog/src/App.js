@@ -1,43 +1,29 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-import React, {useEffect, useState } from "react";
-import Galleries from './Galleries';
-import Accueille from './Accueille';
-import Posts from './Posts';
-import Uploads from './Uploads';
+import React from "react";
 import "./styles.css";
-
+import NavBar from './routes/NavBar';
+import Galleries from './routes/Galleries';
+import Posts from './routes/Posts';
+import Post from './routes/Post';
+import Uploads from './routes/Uploads';
+import { Routes, Route } from "react-router-dom";
 function App() {
-  const [articles, setArticles]= useState([])
-    
-  useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com/posts")
-        .then((res)=>{
-            console.log('conn_api')
-            return res.json()
-        })
-        .then((res)=>{
-          setArticles(res)
-            console.log('conn_api mise à jour');
-        })
-    }, [])
   return (
+
     <div className="App">
-      <Accueille />
-      <ul>
-        {articles.map(article => (
-          <li key={article.title}>
-            {article.title}
-          </li>
-        ))}
-      </ul>
-        
-       
-   </div>
-  
- 
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Posts />} />
+          <Route path="uploads" element={<Uploads />} />
+          <Route path="galleries" element={<Galleries />} />
+          <Route path="post/:articleId" element={<Post />} />
+      </Routes>
+    </div>
+
+
   )
-   
+
 }
 
 export default App;

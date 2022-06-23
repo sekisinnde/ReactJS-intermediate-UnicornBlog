@@ -33,6 +33,12 @@ body{
     align-items: center;
     padding: .25rem;
 }
+.item {
+    border: 2px solid rgb(95, 97, 110);
+    border-radius: .5em;
+    padding: 50px;
+    background-color:cadetblue;
+}
 
 .nav li.active{
     background-color:#555;
