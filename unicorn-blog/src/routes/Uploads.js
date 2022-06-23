@@ -1,15 +1,30 @@
-import React from "react"
+import React, { useState } from "react"
+import "../styles.css";
 
-const Uploads = () =>{
 
-return(
-    <form>
-        <label for="title">title</label>
-        <input type="text"name="title" />
-        <input  type="text" placeholder="mon_ici" />
-        <input type="submit"  value="post"/>
+const Uploads = () => {
+   
+  
+    const [title, setTitle] = useState('')
+    const [article, setArticle] = useState('')
+
+    const handleChangeOn = () => {
+       localStorage.setItem('title',title)
+       localStorage.setItem('article',article)
+    }
+
+    const handleSubmit = () => {
     
-    </form>
-)
+    }
+    return (
+        <form >
+            <label for="title">title</label>
+            <input value={title} onChange={(event) =>setTitle(event.target.value)} className="title" type="text" name="title" />
+            <input value={article} onChange={(event) =>setArticle(event.target.value)} className="article" type="text" name="Article" />
+            <p>{localStorage.getItem('title')}</p>
+            <p>{localStorage.getItem('article')}</p>
+            <input onClick={handleChangeOn} type="submit" value="post" />
+        </form>
+    )
 }
 export default Uploads;

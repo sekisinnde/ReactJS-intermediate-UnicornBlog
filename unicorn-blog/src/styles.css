@@ -39,6 +39,19 @@ body{
     padding: 50px;
     background-color:cadetblue;
 }
+form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10vh;
+    margin-right: 30vh;
+    margin-left: 30vh;
+    background-color: cadetblue;
+    padding: 5vh;
+    
+  
+
+}
 
 .nav li.active{
     background-color:#555;

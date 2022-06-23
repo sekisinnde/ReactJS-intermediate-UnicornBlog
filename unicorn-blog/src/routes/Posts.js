@@ -22,6 +22,8 @@ const Posts = () => {
   return (
 
     <div>
+          <p>{localStorage.getItem('title')}</p>
+          <p>{localStorage.getItem('article')}</p>
       {articles.map((article) => {
         return (
           <Link to={`post/${article.id}`}>
