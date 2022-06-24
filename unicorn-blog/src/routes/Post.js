@@ -4,9 +4,9 @@ import { useParams } from 'react-router-dom';
 
 
 
-const Post = ()=>{
-    let params = useParams();
-    const [article, setArticle] = useState({})
+const Post = () => {
+  let params = useParams();
+  const [article, setArticle] = useState({})
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/posts/${params.articleId}`)
@@ -19,13 +19,20 @@ const Post = ()=>{
         console.log(res);
       })
   }, [])
-  
-    return (
-    <h2>Post:<h1 className="item">
-    {article.title}
-    </h1>
-    <p>{article.body}</p>
-    </h2>);
+
+  return (
+    <div>
+      <h2>Post:<h1 className="item">
+        {article.title}
+      </h1>
+        <p>{article.body}</p>
+           <h2>commentaires</h2>
+        <h3>User number:{article.id}</h3>
+        <p> farfalu</p>
+      </h2>
+    
+    </div>
+  );
 
 }
 export default Post;

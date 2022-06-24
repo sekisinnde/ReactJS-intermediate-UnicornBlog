@@ -18,12 +18,12 @@ const Uploads = () => {
     }
     return (
         <form >
-            <label for="title">title</label>
+            <label for="title">Title</label>
             <input value={title} onChange={(event) =>setTitle(event.target.value)} className="title" type="text" name="title" />
             <input value={article} onChange={(event) =>setArticle(event.target.value)} className="article" type="text" name="Article" />
             <p>{localStorage.getItem('title')}</p>
             <p>{localStorage.getItem('article')}</p>
-            <input onClick={handleChangeOn} type="submit" value="post" />
+            <input onClick={handleChangeOn} className="click" type="submit" value="post" />
         </form>
     )
 }

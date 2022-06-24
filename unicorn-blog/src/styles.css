@@ -48,11 +48,10 @@ form{
     margin-left: 30vh;
     background-color: cadetblue;
     padding: 5vh;
-    
-  
-
 }
-
+.click{
+   background-color:#0000BF;
+}
 .nav li.active{
     background-color:#555;
 }

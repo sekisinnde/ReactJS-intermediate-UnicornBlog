@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import "../styles.css";
 
 
+
 const Posts = () => {
   const [articles, setArticles] = useState([])
 
@@ -20,12 +21,13 @@ const Posts = () => {
   }, [])
 
   return (
-
     <div>
-          <p>{localStorage.getItem('title')}</p>
-          <p>{localStorage.getItem('article')}</p>
+      
+      <p>{localStorage.getItem('title')}</p>
+      <p>{localStorage.getItem('article')}</p>
       {articles.map((article) => {
         return (
+          
           <Link to={`post/${article.id}`}>
             <h1 className="item">
               {article.title}
