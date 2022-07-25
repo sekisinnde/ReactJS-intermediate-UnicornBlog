@@ -4,7 +4,6 @@ import "../styles.css";
 
 const Uploads = () => {
    
-  
     const [title, setTitle] = useState('')
     const [article, setArticle] = useState('')
 
@@ -13,9 +12,6 @@ const Uploads = () => {
        localStorage.setItem('article',article)
     }
 
-    const handleSubmit = () => {
-    
-    }
     return (
         <form >
             <label for="title">Title</label>

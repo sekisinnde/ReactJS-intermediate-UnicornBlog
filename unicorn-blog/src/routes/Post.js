@@ -2,8 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router-dom';
 
-
-
 const Post = () => {
   let params = useParams();
   const [article, setArticle] = useState({})
@@ -25,7 +23,7 @@ const Post = () => {
       <h2>Post:<h1 className="item">
         {article.title}
       </h1>
-        <p>{article.body}</p>
+        <p >{article.body}</p>
            <h2>commentaires</h2>
         <h3>User number:{article.id}</h3>
         <p> farfalu</p>

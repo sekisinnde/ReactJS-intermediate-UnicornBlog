@@ -19,25 +19,50 @@ const Posts = () => {
         console.log('conn_api mise à jour');
       })
   }, [])
+  
+  const filterPosts = (posts, query) => {
+    if (!query) {
+      return posts;
+    }
+
+    return posts.filter((post) => {
+      const postName = post.title.toLowerCase();
+      return postName.includes(query);
+    });
+  };
 
   return (
     <div>
-      
+      <input type="text" id="header-search" placeholder="Search blog posts" name="s" />
       <p>{localStorage.getItem('title')}</p>
       <p>{localStorage.getItem('article')}</p>
-      {articles.map((article) => {
+      
+      {articles.map((article, index) => {
         return (
-          
+         <>
           <Link to={`post/${article.id}`}>
-            <h1 className="item">
+            <h1 key={index} className="item">
               {article.title}
-            </h1>
-            <p>{article.body}</p>
+           </h1>
+           </Link>
+            <p key={index}>{article.body}</p>
             Afficher detaile
-          </Link>
+        
+            </>
+
+        
+          // <Link to={`post/${article.id}`}>
+          //   <h1 key={index} className="item">
+          //     {article.title}
+          //   </h1>
+          //   <p key={index}>{article.body}</p>
+          //   Afficher detaile
+          // </Link>
         )
       })}
+      
     </div>
+    
   )
 
 }
